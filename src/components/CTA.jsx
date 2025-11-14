@@ -1,3 +1,5 @@
+import LoaderHUD from './LoaderHUD'
+
 export default function CTA() {
   return (
     <section id="communaute" className="relative w-full bg-[#0a0a0f] py-20 text-white">
@@ -20,6 +22,11 @@ export default function CTA() {
             <a href="#" className="inline-flex items-center justify-center rounded-lg border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/90 hover:bg-white/10">
               Suivre nos réseaux
             </a>
+          </div>
+          <div className="mt-6 flex items-center justify-center gap-3 text-xs text-white/60">
+            <LoaderHUD label="XP +1 pour chaque nouveau membre" />
+            <span className="hidden sm:inline">•</span>
+            <span className="opacity-80">Viens farmer la commu.</span>
           </div>
         </div>
       </div>

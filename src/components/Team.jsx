@@ -1,3 +1,5 @@
+import RetroCRT from './RetroCRT'
+
 const team = [
   {
     name: 'Alex',
@@ -29,16 +31,22 @@ export default function Team() {
         <h2 className="mb-10 text-2xl font-bold tracking-tight sm:text-3xl">L'équipe</h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((m) => (
-            <div key={m.name} className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-[0_0_40px_-15px_rgba(34,211,238,0.35)]">
+            <RetroCRT key={m.name} className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-[0_0_40px_-15px_rgba(34,211,238,0.35)]">
               <div className="aspect-[4/3] w-full overflow-hidden">
                 <img src={m.img} alt={m.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                {/* Stylized avatar overlay */}
+                <div className="pointer-events-none absolute inset-0 mix-blend-overlay opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{
+                  background: 'radial-gradient(60%_60%_at_50%_40%,rgba(34,211,238,0.15)_0%,rgba(217,70,239,0.12)_45%,transparent_100%)'
+                }} />
               </div>
               <div className="relative p-5">
                 <h3 className="text-lg font-semibold text-cyan-300">{m.name}</h3>
                 <div className="text-sm text-white/70">{m.role}</div>
                 <p className="mt-2 text-sm text-white/75">{m.desc}</p>
+                {/* XP micro-reaction */}
+                <div className="mt-3 text-[11px] text-white/60">Astuce: survolez la carte pour voir l'effet "loading screen"</div>
               </div>
-            </div>
+            </RetroCRT>
           ))}
         </div>
       </div>

@@ -1,4 +1,7 @@
-import Spline from '@splinetool/react-spline';
+import Spline from '@splinetool/react-spline'
+import HUDOverlay from './HUDOverlay'
+import PixelDust from './PixelDust'
+import GlitchText from './GlitchText'
 
 export default function Hero() {
   return (
@@ -13,6 +16,10 @@ export default function Hero() {
         background: 'radial-gradient(60% 60% at 50% 20%, rgba(0,255,255,0.15) 0%, rgba(255,0,255,0.08) 50%, transparent 100%)'
       }} />
 
+      {/* HUD elements + pixel dust */}
+      <PixelDust className="z-0" />
+      <HUDOverlay className="z-0" />
+
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-start justify-center gap-6 px-6">
         <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-cyan-300 ring-1 ring-white/15 backdrop-blur">
           <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-400 shadow-[0_0_20px_3px_rgba(34,211,238,0.6)]" />
@@ -20,7 +27,7 @@ export default function Hero() {
         </span>
 
         <h1 className="text-3xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
-          <span className="block drop-shadow-[0_0_20px_rgba(34,211,238,0.35)]">Marre du putaclic et des pseudo-journalistes ?</span>
+          <GlitchText className="block drop-shadow-[0_0_20px_rgba(34,211,238,0.35)]">Marre du putaclic et des pseudo-journalistes ?</GlitchText>
         </h1>
 
         <p className="max-w-2xl text-lg text-white/80 sm:text-xl">
@@ -44,5 +51,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  );
+  )
 }

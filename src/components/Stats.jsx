@@ -1,10 +1,12 @@
+import XPCount from './XPCount'
+
 export default function Stats() {
   const stats = [
-    { value: '39,1 M', label: 'de joueurs en France', source: 'Médiamétrie 2023' },
-    { value: '72%', label: 'des Français jouent', source: 'Médiamétrie 2023' },
-    { value: '3,32 Md', label: 'de joueurs dans le monde', source: 'Exploding Topics 2024' },
-    { value: '1/2', label: "ne fait pas confiance aux avis en ligne", source: 'OCDE' },
-  ];
+    { value: 39100000, label: 'de joueurs en France', source: 'Médiamétrie 2023', prefix: '+', suffix: ' XP unlocked' },
+    { value: 72, label: 'des Français jouent', source: 'Médiamétrie 2023', prefix: 'Population scanned: ', suffix: '% gamers' },
+    { value: 3.32e9, label: 'de joueurs dans le monde', source: 'Exploding Topics 2024', prefix: 'Global players: ', suffix: '' },
+    { value: 1, label: 'ne fait pas confiance aux avis en ligne sur 2', source: 'OCDE', prefix: 'Trust check: ', suffix: '/2' },
+  ]
 
   return (
     <section className="relative w-full bg-[#07070b] py-16 text-white">
@@ -19,7 +21,9 @@ export default function Stats() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label} className="rounded-xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] p-6">
-              <div className="text-3xl font-extrabold tracking-tight text-cyan-300 drop-shadow-[0_0_16px_rgba(34,211,238,0.35)]">{s.value}</div>
+              <div className="text-xl font-extrabold tracking-tight">
+                <XPCount target={s.value} prefix={s.prefix} suffix={s.suffix} />
+              </div>
               <div className="mt-1 text-sm text-white/80">{s.label}</div>
               <div className="mt-2 text-xs text-white/50">Source: {s.source}</div>
             </div>
@@ -32,5 +36,5 @@ export default function Stats() {
         </div>
       </div>
     </section>
-  );
+  )
 }
